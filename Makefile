@@ -11,7 +11,7 @@ endif
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install deploy deploy-pihole deploy-nodes dns ping check lint
+.PHONY: help install deploy deploy-pihole deploy-nodes dns ping check lint uninstall
 
 help: ## Affiche l'aide
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -42,3 +42,9 @@ check: ## Dry-run sur tous les playbooks
 
 lint: ## Lint tous les playbooks avec ansible-lint
 	ansible-lint $(PLAYBOOK_PIHOLE) $(PLAYBOOK_NODES)
+
+uninstall: ## Désinstalle Pi-hole et restaure le DNS sur les nœuds
+	ansible -i $(INVENTORY) dns_servers -m shell -a "echo y | pihole uninstall" -b
+	ansible -i $(INVENTORY) cluster_nodes -m file -a "path=/etc/resolv.conf attr=-i" -b
+	ansible -i $(INVENTORY) cluster_nodes -m file -a "path=/etc/NetworkManager/conf.d/no-dns.conf state=absent" -b
+	ansible -i $(INVENTORY) cluster_nodes -m service -a "name=NetworkManager state=restarted" -b
