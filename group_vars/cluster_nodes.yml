@@ -1,0 +1,6 @@
+---
+# IP du serveur Pi-hole utilisé comme DNS primaire
+pihole_ip: 192.168.1.119
+
+# DNS de fallback si Pi-hole est indisponible
+dns_fallback: 8.8.8.8

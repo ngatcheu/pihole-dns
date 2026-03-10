@@ -1,0 +1,23 @@
+---
+# Mot de passe admin Pi-hole (chargé depuis .env)
+pihole_password: "{{ lookup('env', 'PIHOLE_PASSWORD') }}"
+
+# Interface réseau écoutée par Pi-hole
+pihole_interface: eth0
+
+# Serveurs DNS upstream
+pihole_dns_1: 8.8.8.8
+pihole_dns_2: 8.8.4.4
+
+# Taille du cache DNS
+pihole_cache_size: 10000
+
+# Enregistrements DNS personnalisés pour les services du homelab
+dns_records:
+  # Ingress Kubernetes (IP MetalLB)
+  - host: rancher.homelab.local
+    ip: 192.168.1.200
+  - host: adminer.homelab.local
+    ip: 192.168.1.220
+  # - host: grafana.homelab.local
+  #   ip: 192.168.1.200

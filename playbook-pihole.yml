@@ -1,0 +1,8 @@
+---
+- name: Installation et configuration de Pi-hole
+  hosts: dns_servers
+  become: true
+  tasks: 
+  - ansible.builtin.import_role:
+      name: nsfabrice2009.config.pihole_dns
+

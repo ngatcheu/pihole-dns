@@ -1,0 +1,3 @@
+---
+# Variables communes à tous les hôtes
+ansible_user: root

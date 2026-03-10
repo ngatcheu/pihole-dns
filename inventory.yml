@@ -1,0 +1,32 @@
+---
+all:
+  children:
+    dns_servers:
+      hosts:
+        pihole01:
+          ansible_host: 192.168.1.119  # VM Pi-hole
+          ansible_user: root
+          # ansible_ssh_private_key_file: ~/.ssh/id_rsa  # Clé SSH privée (optionnel)
+
+    cluster_nodes:
+      vars:
+        ansible_user: root
+      hosts:
+        node01:
+          ansible_host: 192.168.1.113
+        node02:
+          ansible_host: 192.168.1.114
+        node03:
+          ansible_host: 192.168.1.115
+        node04:
+          ansible_host: 192.168.1.116
+        node05:
+          ansible_host: 192.168.1.117
+        node06:
+          ansible_host: 192.168.1.118
+        node07:
+          ansible_host: 192.168.1.112
+        node08:
+          ansible_host: 192.168.1.111
+        node09:
+          ansible_host: 192.168.1.110

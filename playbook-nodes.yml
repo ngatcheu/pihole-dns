@@ -1,0 +1,7 @@
+---
+- name: Configurer le DNS Pi-hole sur les nœuds du cluster
+  hosts: cluster_nodes
+  become: true
+  tasks: 
+  - ansible.builtin.import_role:
+      name: nsfabrice2009.config.pihole_dns_nodes
