@@ -43,3 +43,11 @@ dns_records:
   # VM standalone-1 (Floci, émulateur AWS : datacenter-floci)
   - host: floci.homelab.local
     ip: 192.168.1.120
+
+# Wildcards (dnsmasq address=) : le domaine ET tous ses sous-domaines.
+# Toute appli exposée par la Gateway Traefik du cluster Payload en
+# <appli>.apps.homelab.local est résolue sans ajout ici (certificat :
+# apps-wildcard-tls dans catalog-gitops-fluxcd).
+dns_wildcards:
+  - domain: apps.homelab.local
+    ip: 192.168.1.211
