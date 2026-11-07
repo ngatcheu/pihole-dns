@@ -40,15 +40,3 @@ dns_records:
     ip: 192.168.1.211
   - host: netbox.homelab.local
     ip: 192.168.1.211
-  # Cluster OKD (SNO : API et ingress sur le nœud 192.168.1.120 ;
-  # en compact 3 nœuds, remplacer par les VIPs .125 / .126 de cluster.hcl)
-  - host: api.okd.homelab.local
-    ip: 192.168.1.120
-  - host: api-int.okd.homelab.local
-    ip: 192.168.1.120
-
-# Wildcards (dnsmasq address=) : le domaine et tous ses sous-domaines
-dns_wildcards:
-  # Routes OKD *.apps (console, oauth, applications)
-  - domain: apps.okd.homelab.local
-    ip: 192.168.1.120
