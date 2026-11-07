@@ -40,3 +40,6 @@ dns_records:
     ip: 192.168.1.211
   - host: netbox.homelab.local
     ip: 192.168.1.211
+  # VM standalone-1 (Floci, émulateur AWS : datacenter-floci)
+  - host: floci.homelab.local
+    ip: 192.168.1.120
