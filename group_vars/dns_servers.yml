@@ -14,32 +14,36 @@ pihole_cache_size: 10000
 
 # Enregistrements DNS personnalisés pour les services du homelab
 dns_records:
-  # Cluster Rancher (ingress MetalLB 192.168.1.200)
+  # Cluster Rancher (Gateway Traefik, IP MetalLB 192.168.1.131)
   - host: rancher.homelab.local
-    ip: 192.168.1.200
-  # Cluster Payload (ingress MetalLB 192.168.1.211)
-  - host: adminer.homelab.local
-    ip: 192.168.1.211
+    ip: 192.168.1.131
+  - host: argocd-rancher.homelab.local
+    ip: 192.168.1.131
+  # Cluster Payload (Gateway Traefik, IP MetalLB 192.168.1.133) — une entrée par HTTPRoute
   - host: vault.homelab.local
-    ip: 192.168.1.211
+    ip: 192.168.1.133
+  - host: harbor.homelab.local
+    ip: 192.168.1.133
+  - host: kafka.homelab.local
+    ip: 192.168.1.133
   - host: gitlab.homelab.local
-    ip: 192.168.1.211
-  - host: argocd.homelab.local
-    ip: 192.168.1.211
+    ip: 192.168.1.133
+  - host: adminer.homelab.local
+    ip: 192.168.1.133
   - host: n8n.homelab.local
-    ip: 192.168.1.211
-  - host: longhorn.homelab.local
-    ip: 192.168.1.211
-  - host: prometheus.homelab.local
-    ip: 192.168.1.211
-  - host: grafana.homelab.local
-    ip: 192.168.1.211
-  - host: alertmanager.homelab.local
-    ip: 192.168.1.211
+    ip: 192.168.1.133
   - host: phpipam.homelab.local
-    ip: 192.168.1.211
-  - host: netbox.homelab.local
-    ip: 192.168.1.211
+    ip: 192.168.1.133
+  - host: argo.homelab.local
+    ip: 192.168.1.133
+  - host: longhorn.homelab.local
+    ip: 192.168.1.133
+  - host: prometheus.homelab.local
+    ip: 192.168.1.133
+  - host: grafana.homelab.local
+    ip: 192.168.1.133
+  - host: alertmanager.homelab.local
+    ip: 192.168.1.133
   # VM standalone-1 (Floci, émulateur AWS : datacenter-floci)
   - host: floci.homelab.local
     ip: 192.168.1.120
@@ -50,4 +54,4 @@ dns_records:
 # apps-wildcard-tls dans catalog-gitops-fluxcd).
 dns_wildcards:
   - domain: apps.homelab.local
-    ip: 192.168.1.211
+    ip: 192.168.1.133
