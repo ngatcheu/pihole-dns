@@ -17,7 +17,7 @@ dns_records:
   # Cluster Rancher (ingress MetalLB 192.168.1.200)
   - host: rancher.homelab.local
     ip: 192.168.1.200
-  # Cluster Payload (ingress MetalLB 192.168.1.201)
+  # Cluster Payload (ingress MetalLB 192.168.1.211)
   - host: adminer.homelab.local
     ip: 192.168.1.211
   - host: vault.homelab.local
